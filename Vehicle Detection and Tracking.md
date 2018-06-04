@@ -20,19 +20,19 @@ The code for this step is contained in the `Preprocess.py` and `train_model.py`.
 
 I started by reading in all the `vehicle` and `non-vehicle` images. Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![p1]()
+![p1](https://github.com/wastal92/CarND-P5/blob/master/output_images/p1.jpg)
 
 #### 2. Exploration of color space
 I then expolred different color spaces (RGB, HSV, LUV, HLS) and here is an example of the distribution of color values in a car image.
 
-![p4]()
+![p4](https://github.com/wastal92/CarND-P5/blob/master/output_images/p4.jpg)
 
 #### 3. Exploration of HOG
 Next, I explored different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`) to extract different HOG features. I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
 Here is an example using grey scale and HOG parameters of `orientations=11`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
-![p5]()
+![p5](https://github.com/wastal92/CarND-P5/blob/master/output_images/p5.jpg)
 
 #### 4. Final choice of color space and HOG parameters
  After tried varoius combinations of parameters, I decided to choose extraction parameters shown as following:
@@ -81,20 +81,20 @@ I used different combinations of start, stop positons in y axis and scales to ac
 
 Here is an example of the sliding windows:
 
-![p6]()
+![p6](https://github.com/wastal92/CarND-P5/blob/master/output_images/p6.jpg)
 
 When scale=1.0, the classifier produces many false positives and when scale is larger than 2.5, the window is too large for locating a car. And it shows we can get most true positives at 1.5 and 2.0 of the scale.
 
 #### 2. Examples of test images
 Here are some examples of the result after finding the cars in test images:
 
-![p7]()
+![p7](https://github.com/wastal92/CarND-P5/blob/master/output_images/p7.jpg)
 
 ### Video Implementation
 
 #### 1. Final video link
 
-Here's a [link]() to my video result.
+Here's a [link](https://github.com/wastal92/CarND-P5/blob/master/project_video_output.mp4) to my video result.
 
 #### 2. Filter false positive redult and combine bounding boxes
 
@@ -103,11 +103,11 @@ The code for this step is contained in the `heat_map.py` and `process_img()` fun
 I recorded the positions of positive detections in each frame of the video. From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions. I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap. I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected.
 Here's an example result showing the heatmap from a series of frames of video and the result of `scipy.ndimage.measurements.label()`:
 
-![p8]()
+![p8](https://github.com/wastal92/CarND-P5/blob/master/output_images/p8.jpg)
 
 Here the resulting bounding boxes are drawn onto the last frame in the series:
 
-![p9]()
+![p9](https://github.com/wastal92/CarND-P5/blob/master/output_images/p9.png)
 
 ### Discussion
 
