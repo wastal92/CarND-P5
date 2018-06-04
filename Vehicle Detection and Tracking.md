@@ -36,6 +36,7 @@ Here is an example using grey scale and HOG parameters of `orientations=11`, `pi
 
 #### 4. Final choice of color space and HOG parameters
  After tried varoius combinations of parameters, I decided to choose extraction parameters shown as following:
+ 
  |Parameters|Value|
  |----------|-----|
  |Using Spatial Features|Yes|
@@ -48,6 +49,7 @@ Here is an example using grey scale and HOG parameters of `orientations=11`, `pi
  |HOG orient|11|
  |HOG pixel per cell|8|
  |HOG cell per block|2|
+ 
 I use `cv2.imread()` to read images which generates `BGR` channel images. So, I first convert the color channel to `HSV` and then I extract the spatial features and the histogram features using the functions provided in the course. Next I extract HOG features from all of the three channels. Finally, I concatenate these three features together as a feature vector of a training example.
 
 #### 5. Training a classifier
@@ -61,6 +63,7 @@ The code for this step is contained in the `Search_and_Classify.py`.
 I used `find_cars()` function to implement the sliding window search and make a test on the image in sliding window to find windows containing a car. First, if the `scale` is not 1, I resized the image to original image shape devided by scale which means I used fixed size of window to slide on different scales of images. Then I set the window size to 64×64 which is the size of the training images and the cells per step to 2 instead of using overlap rate. Next I extract the HOG features of the entire image and for each sliding step I subsample the HOG fetures from the entire HOG matrix. Finally, I extract the spatial features and the histogram features of the overlapped region and put them together to make a prediction.
 
 I used different combinations of start, stop positons in y axis and scales to achieve satisfied performance. Here is the combinations:
+
 |y_start| y_stop|scale|
 |------|------|-----|
 |400|464|1.0|
@@ -75,6 +78,7 @@ I used different combinations of start, stop positons in y axis and scales to ac
 |432|560|2.0|
 |400|560|2.5|
 |432|592|2.5|
+
 Here is an example of the sliding windows:
 
 ![p6]()
